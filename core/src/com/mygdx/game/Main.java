@@ -28,7 +28,7 @@ public class Main extends ApplicationAdapter {
     Colision colision;
     //timer period for spawning
     float time = 0f;
-    float timePeriod = 2f;
+    float timePeriod = 999f;
     Pipe hitPipe = null;
 
     @Override
@@ -73,6 +73,7 @@ public class Main extends ApplicationAdapter {
             time = 0f;
             remPipe();
         }
+        if ( player.position.y + player.sprite.getHeight() > WINDOW_HEIGHT/2 || player.position.y < -1*WINDOW_HEIGHT/2 ) stopPipes();
 
         batch.setProjectionMatrix(camera.combined);
 
@@ -95,6 +96,14 @@ public class Main extends ApplicationAdapter {
         for ( Pipe pipe : remPipes) {
             if ( hitPipe != pipe) pipes.remove(pipe);
         }
+    }
+
+    private void stopPipes() {
+        for ( Pipe pipe : pipes) {
+            pipe.speed = 0f;
+            timePeriod = 999f;
+        }
+        System.out.println("Dotytka barierki");
     }
 
     @Override

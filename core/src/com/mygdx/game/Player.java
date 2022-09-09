@@ -26,17 +26,17 @@ public class Player {
         sprite.setPosition(position.x, position.y);
         rectangle.x = position.x;
         rectangle.y = position.y;
-        //System.out.println("x: " + position.x + ", y: " + position.y);
+        System.out.println("x: " + position.x + ", y: " + position.y);
         sprite.draw(batch);
     }
 
     public void Update(float deltaTime){
-        /*if (Gdx.input.isKeyPressed(Keys.A)) position.x-=deltaTime*speed;
+        if (Gdx.input.isKeyPressed(Keys.A)) position.x-=deltaTime*speed;
         if (Gdx.input.isKeyPressed(Keys.D)) position.x+=deltaTime*speed;
         if (Gdx.input.isKeyPressed(Keys.W)) position.y+=deltaTime*speed;
-        if (Gdx.input.isKeyPressed(Keys.S)) position.y-=deltaTime*speed;*/
-        if (Gdx.input.isKeyPressed(Keys.W)) speed = 250f;
+        if (Gdx.input.isKeyPressed(Keys.S)) position.y-=deltaTime*speed;
+       /* if (Gdx.input.isKeyPressed(Keys.W)) speed = 275f;
         position.y+=deltaTime*speed;
-        speed -= 1000f*deltaTime;
+        speed -= 1000f*deltaTime;*/
     }
 }
