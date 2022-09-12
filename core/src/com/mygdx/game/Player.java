@@ -13,12 +13,13 @@ public class Player {
     public Sprite sprite;
     public Rectangle rectangle;
     public float speed = 100f;
+    public float jumpSpeed = 275f;
     public Player(Texture img){
         sprite = new Sprite(img);
         sprite.setOriginCenter();
         sprite.setSize(73,60);
         rectangle = new Rectangle(0,0, sprite.getWidth()*0.9f, sprite.getHeight());
-        position = new Vector2(0,0);
+        position = new Vector2(-250,0);
     }
 
     public void Draw(SpriteBatch batch){
@@ -31,12 +32,12 @@ public class Player {
     }
 
     public void Update(float deltaTime){
-        if (Gdx.input.isKeyPressed(Keys.A)) position.x-=deltaTime*speed;
+        /* if (Gdx.input.isKeyPressed(Keys.A)) position.x-=deltaTime*speed;
         if (Gdx.input.isKeyPressed(Keys.D)) position.x+=deltaTime*speed;
         if (Gdx.input.isKeyPressed(Keys.W)) position.y+=deltaTime*speed;
-        if (Gdx.input.isKeyPressed(Keys.S)) position.y-=deltaTime*speed;
-       /* if (Gdx.input.isKeyPressed(Keys.W)) speed = 275f;
+        if (Gdx.input.isKeyPressed(Keys.S)) position.y-=deltaTime*speed;*/
+       if (Gdx.input.isKeyPressed(Keys.W)) speed = jumpSpeed;
         position.y+=deltaTime*speed;
-        speed -= 1000f*deltaTime;*/
+        speed -= 1000f*deltaTime;
     }
 }
